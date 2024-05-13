@@ -4,7 +4,7 @@ import MailIcon from '@mui/icons-material/Mail';
 const Footer: React.FC = () => {
 
     return (
-        <footer className="flex flex-direction-row width-100 justify-around items-center h-20">
+        <footer className="flex flex-direction-row width-100 justify-around items-center h-20 mt-20">
             <div>
                 Logo
             </div>
