@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  nettside:
+    network_mode: host
+    user: 1002:1003
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./docs:/home/node/app/docs
+
+
+      # THIS IS STILL JUST A TEMPLATE FROM OLD PROJECT
