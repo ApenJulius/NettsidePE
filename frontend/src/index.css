@@ -16,6 +16,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #004d40;
   background: linear-gradient(#004d40, #263238);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-between;
+  width: 100%;
 }
 
 code {
