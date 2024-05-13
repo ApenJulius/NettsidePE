@@ -7,20 +7,20 @@ import Logo from "../../assets/logocs.png";
 const Header: React.FC = () => {
 
     return (
-        <header className="flex flex-direction-row width-100 justify-around items-center h-20">
-           <button className="position-relative h-full overflow-hidden p-4">
+        <header className="flex justify-between items-center h-20 px-4 mt-5 mb-5">
+            <button className="h-full overflow-hidden p-4">
                 <img src={Logo} alt="Logo" className="object-contain h-full min-h-0 max-h-full" />
-           </button>
-            <ul className="flex text-white [&>*]:p-2">
+            </button>
+            <ul className="flex text-white space-x-4">
                 <li>Home</li>
                 <li>About</li>
                 <li>Contact</li>
                 <li>Contact</li>
                 <li>Contact</li>
             </ul>
-            <ul className="flex justify-between "> 
+            <ul className="flex space-x-4"> 
                 <li>
-                <button>
+                    <button>
                         <MailIcon />
                     </button>
                 </li>
