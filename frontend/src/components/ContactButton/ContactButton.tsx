@@ -1,13 +1,35 @@
 import { GitHub, LinkedIn, Twitter } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 
 const ContactButton: React.FC = () => {
+    const formRef = useRef<HTMLFormElement>(null);
     const [showForm, setShowForm] = useState(false);
     const handleClick = () => {
         console.log("Get Started Now button clicked");
         setShowForm(!showForm);
     }
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const name = document.querySelector('#name')?.value;
+        const email = document.querySelector('#email')?.value;
+        const message = document.querySelector('#message')?.value;
+
+        console.log(name, email, message)
+        console.log("Form submitted");
+        const response = await fetch('http://localhost:3000/contact-forms/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, message }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+    }
+
 
     return (
         <>
@@ -15,7 +37,7 @@ const ContactButton: React.FC = () => {
             { showForm &&
                 
                     <div className="flex flex-row justify-between fixed">
-                        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col translate-y-1/3 ">
+                        <form ref={formRef} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col translate-y-1/3 " onSubmit={handleSubmit}>
                         <div className="flex justify-end text-black">
                                 <button onClick={handleClick} className="font-bold text-2xl">X</button>
                             </div>
